@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expens Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <form id="form">
+        <label for="date">Enter the Date</label>
+<input type="date" id="date"></br></br>
+
+<!-- income type selection -->
+
+<b>Select the type (income/expanse)</b></br></br>
+<input type="radio" id="income" name="Select"  value="income" onclick="incomeFun()" />Income<br>
+<input type="radio" id="expense" name="Select" value="expense" onclick="incomeFun()"checked="checked">Expense</br></br>
+
+
+<!-- select cash or bank -->
+
+<div id="amount_type" style="display: none;">
+    <b>Select the type (cash/bank)</b></br></br>
+<input type="radio" id="cash" value="cash" name="amount">Cash</br>
+<input type="radio" id="bank" value="bank"name="amount">Bank</br></br>
+</div> 
+
+
+<!-- income catogory -->
+
+
+<div id="amount_catogory" style="display: none;">
+  <label for="income_catogory">Choose the expense catogory</label>
+  <select id="income_catogory"onchange="GetSelectedTextValue1(this)" >
+      <option value="select">Select income catogory</option>
+      <option value="salary">Salary Amount</option>
+    <option value="interest">Interest Amount</option>
+    <option value="misc">Miscellaneous</option>
+  </select>
+  <br><br>
+  <!-- income input field and remark input field -->
+
+ 
+<div id="inc_amt" style="display: none;">
+  <label for="income_amount_field">Enter the Income Amount</label><br><br>
+  <input type="number" id="income_amount_field" placeholder="Enter income amount" ></br></br>
+</div>
+
+  </div>
+  <br><br>
+  <div id="remark_visible">
+    <label for="remark_field">Remarks</label><br><br>
+    <input type="text" id="remark_field" placeholder="Enter remarks" ></br></br>
+  </div>
+  
+ 
+
+<!-- expense section -->
+<div id="div_expens_catogory" style="display: none;">
+<label for="expens_catogory">Choose the expense catogory</label>
+<select id="expens_catogory"onchange="GetSelectedTextValue(this)" >
+    <option>Select catogory</option>
+    <option value="house hold">house hold</option>
+  <option value="bills">bills</option>
+  <option value="food">food</option>
+  <option value="fuel">fuel</option>
+  <option value="health">health</option>
+  <option value="shopping">shopping</option>
+</select>
+
+<br><br>
+<div id="exp_amt" style="display: none;">
+  <label for="expense_amount_field">Enter the Expense Amount</label><br><br>
+  <input type="number" id="expense_amount_field" placeholder="Enter Expense amount" ></br></br>
+</div>
+
+<!-- multi check box -->
+
+<!-- house hold -->
+
+<div id="house_hold" style="display: none;">
+    <label for="rent">
+      <input type="checkbox" id="rent" onclick="myfun()" />Rent</label></br>
+     
+    </br>
+    <label for="furniture">
+      <input type="checkbox" id="furniture"  onclick="myfun()"  />furniture</label></br>
+     
+    </br>
+    <label for="decore">
+      <input type="checkbox" id="decore"  onclick="myfun()" />Decore</label></br>
+      
+    </br>
+      <label for="electronics">
+        <input type="checkbox" id="electronics" onclick="myfun()" />Electronics</label></br>
+        
+    </br>
+    </div>
+
+
+
+
+  <!-- bills -->
+  <div id="bills" style="display: none;">
+    <label for="electricity">
+      <input type="checkbox" id="electricity" onclick="myfun1()" />Electricity</label></br>
+   
+    </br>
+    <label for="water">
+      <input type="checkbox" id="water"  onclick="myfun1()"  />Water</label></br>
+      
+    </br>
+    <label for="gas">
+      <input type="checkbox" id="gas"  onclick="myfun1()" />gas</label></br>
+     
+    </br>
+      <label for="houseHelp">
+        <input type="checkbox" id="houseHelp" onclick="myfun1()" />House Help</label></br>
+        
+    </br>
+    </div>
+
+      <!-- food -->
+  <div id="food" style="display: none;">
+    <label for="grocery">
+      <input type="checkbox" id="grocery" onclick="myfun2()" />grocery</label></br>
+      
+    </br>
+    <label for="eatingoutside">
+      <input type="checkbox" id="eatingoutside"  onclick="myfun2()"  />eating outside</label></br>
+     
+    </br>
+    </div>
+
+        <!-- fuel -->
+  <div id="fuel" style="display: none;">
+    <label for="motorcycle">
+      <input type="checkbox" id="motorcycle" onclick="myfun3()" />Motorcycle</label></br>
+     
+    </br>
+    <label for="car">
+      <input type="checkbox" id="car"  onclick="myfun3()"  />Car</label></br>
+     
+    </br>
+    </div>
+
+        <!-- health -->
+  <div id="health" style="display: none;">
+    <label for="doctor">
+      <input type="checkbox" id="doctor" onclick="myfun4()" />doctor</label></br>
+      
+    </br>
+    <label for="sports">
+      <input type="checkbox" id="sports"  onclick="myfun4()"  />sports</label></br>
+     
+    </br>
+    </div>
+         <!-- shopping -->
+  <div id="shopping" style="display: none;">
+    <label for="personal">
+      <input type="checkbox" id="personal" onclick="myfun5()" />personal expense</label></br>
+      
+    </br>
+    <label for="gift">
+      <input type="checkbox" id="gift"  onclick="myfun5()"  />gift expense</label></br>
+      
+    </br>
+    </div>
+  </div>
+
+
+<!-- submit -->
+     <button type="submit" id="btn" onclick="calculations()">Submit</button><br><br>
+
+
+    </form>
+  </div>
+  
+    <label for="total_cash_income">Total Cash Income
+      <div id="total_cash_income"><span ></span></div></label>
+    </br>
+    <label for="total_bank_income">Total Bank Income
+    <div id="total_bank_income" ><span ></span></div></label></br>
+    
+    <label for="total_cash_expense">Total Cash expanse
+        <div id="total_cash_expense"><span ></span></div></label></br>
+        <label for="total_bank_expense">Total Bank expanse
+        <div id="total_bank_expense"><span ></span></div></label></br>
+  <label for="total_income">Total Income:
+  <div id="total_income"><span></span></div></label>
+  <label for="total_expense">Total Expense:
+    <div id="total_expense"><span></span></div></label>
+
+  <label for="cash_balance">Cash Balance:
+    <div id="cash_balance"><span></span></div>
+  </label>
+  <label for="bank_balance">Bank Balance:
+    <div id="bank_balance"><span></span></div>
+  </label>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Type</th>
+        <th>From To</th>
+        <th>Catogory</th>
+        <th>Remarks</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+    <script src="script.js"></script>
+</body>
+</html>

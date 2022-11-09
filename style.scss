@@ -1,0 +1,57 @@
+$text-color:black;
+
+@mixin comment {
+  margin:0 auto;   
+}
+@mixin display {
+    display: inline;
+    background-color:$text-color ; 
+}
+form {
+    @include comment;
+    background-color: blanchedalmond;
+    width: 30%;
+    color: $text-color;
+    padding: 20px 20px;
+}
+#btn{
+    width:80%;
+    height: 50px;
+    display:block;
+    justify-content: center;
+    font-size: x-large;
+    @include comment;
+}
+body{
+    background-image: url("bg-1.jpg");
+    width: fit-content;
+    background-size:cover;
+    background-repeat:no-repeat;
+    width:100%;
+    height:100%;
+    color: aliceblue;
+    font-size: 1.5rem;
+}
+label{
+    font-weight :bolder;
+}
+#total_cash_income,#total_bank_income,#total_cash_expanse,#total_bank_expanse{
+    @include display;
+}
+
+#remark_field{
+    height:80px;
+    width:250px;
+    border-radius: 5px;
+}
+#income_amount_field{
+   width:200px; 
+   height:40px ; 
+   font-size: 1rem;
+   font-weight: bolder;
+border-radius: 5px;
+}
+table,th,td{
+    border:2px solid;
+    width: 100vh;
+}
